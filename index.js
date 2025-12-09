@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 3000;
 
 // Enable CORS so your React app can hit this server
 app.use(cors());
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
 
 app.get('/proxy', async (req, res) => {
     const { url } = req.query;
